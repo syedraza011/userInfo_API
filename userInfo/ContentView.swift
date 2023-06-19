@@ -1,13 +1,10 @@
-////
-////  ContentView.swift
-////  userInfo
-////
-////  Created by Syed Raza on 6/19/23.
-////
 //
+//  userInfoApp.swift
+//  userInfo
 //
+//  Created by Syed Raza on 6/19/23.
 //
-//
+
 import SwiftUI
 
 struct ContentView: View {
@@ -60,19 +57,27 @@ struct UserDetailsView: View {
     let user: User
 
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
+            
+            Text("\(user.id)")
             Text(user.name)
-                .font(.title)
-            Text("ID: \(user.id)")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            Text("Email: \(user.email)")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            Text("Phone: \(user.phone)")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-        }
+            Text(user.username)
+            Text(user.email)
+            Text(user.address.street)
+            Text(user.address.suite)
+            Text(user.address.city)
+            VStack(spacing: 10) {
+                Text(user.address.zipcode)
+                Text(user.address.geo.lat)
+                Text(user.address.geo.lng)
+                Text(user.phone)
+                Text(user.website)
+                Text(user.company.name)
+                Text(user.company.catchPhrase)
+                Text(user.company.bs)
+            }
+    }
+
         .padding()
     }
 }
@@ -83,85 +88,3 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-
-//import SwiftUI
-//
-//struct ContentView: View {
-//    @StateObject var viewModel = UserViewModel()
-//
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-//                List(viewModel.users) { user in
-//                    NavigationLink(destination: UserDetailsView(user: user)) {
-//                        HStack {
-//                            Text("\(user.id)")
-//                                .font(.subheadline)
-//                                .foregroundColor(.white)
-//                            Text(user.name)
-//
-//                                .foregroundColor(.primary)
-//                        }
-//
-//
-//
-//                        VStack(alignment: .leading) {
-//                            Text(user.email)
-//
-//
-//                            Text(user.phone)
-//
-//
-//                        }
-//                        .padding(10)
-//
-//                    }
-//                    .background(Color.blue)
-//                    .foregroundColor(.white)
-//                    .cornerRadius(15)
-//                }
-//                .listStyle(.plain)
-//            }
-//            .navigationBarTitle("PhoneBook")
-//            .onAppear {
-//                viewModel.getUsers()
-//            }
-//            .padding()
-//        }
-//        .background(Color.green)
-//        .accentColor(.blue)
-//    }
-//}
-//
-//struct UserDetailsView: View {
-//    let user: User
-//
-//    var body: some View {
-//        VStack {
-//            Text(user.name)
-//                .font(.title)
-//            Text("ID: \(user.id)")
-//                .font(.subheadline)
-//                .foregroundColor(.secondary)
-//            Text("Email: \(user.email)")
-//                .font(.subheadline)
-//                .foregroundColor(.secondary)
-//            Text("Phone: \(user.phone)")
-//                .font(.subheadline)
-//                .foregroundColor(.secondary)
-//        }
-//        .padding()
-//    }
-//}
-//
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
-//
-//
-//
-//
-//
-//
