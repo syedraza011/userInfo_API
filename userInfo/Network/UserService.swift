@@ -40,30 +40,3 @@ class UserService {
     }
 }
 
-//class UserService {
-//    var cancelable = Set<AnyCancellable>()
-//    let urlString = "https://jsonplaceholder.typicode.com/users"
-//
-//    func fetchUsers() -> Error{
-//        return Future(){
-//            promise in let url = URL (string: urlString)!
-//
-//            URLSession.shared.dataTaskPublisher(for: url)
-//                .map {$0 .data}
-//                .decode (type: UserResponse.self, decoder: JSONDecoder())
-//                .receive(on: RunLoop.main)
-//                .sink { completion in
-//                    switch completion {
-//                    case .finished:
-//                        break
-//                    case .failure (let err):
-//                        promise ( .failure(err))
-//                    }
-//
-//                }receiveValue: { response in
-//                    promise(.success( response))
-//                }
-//                .store(in: &self.cancelable)
-//        }
-//    }
-//}

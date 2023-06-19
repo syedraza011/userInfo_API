@@ -8,22 +8,23 @@
 import SwiftUI
 
 struct SingleUserCell: View {
-    let user : User
+    let user: User
+    
     var body: some View {
-        HStack {
-        VStack(spacing: 10){
-            Text(user.id)
+        VStack(spacing: 10) {
+            Text("\(user.id)")
             Text(user.name)
             Text(user.email)
             Text(user.phone)
         }
-      
-    }
     }
 }
 
 struct SingleUserCell_Previews: PreviewProvider {
     static var previews: some View {
-        SingleUserCell(user: User.mock)
+        let mockUser = User(id: 1, name: "John Doe", email: "abc@gmail.com", phone: "(775)976-6794 x41206")
+        return SingleUserCell(user: mockUser)
     }
 }
+
+

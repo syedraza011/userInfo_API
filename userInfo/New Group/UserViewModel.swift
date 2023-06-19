@@ -27,27 +27,3 @@ class UserViewModel: ObservableObject {
             .store(in: &cancelable)
     }
 }
-
-
-//import Foundation
-//class UserViewModel: ObservableObject {
-//    @Published var users = [User]()
-//    var cancelable = Set<AnyCancellable>()
-//    let service = UserService()
-//
-//    func getUsers (_ user: String) {
-//        service.fetchUsers (user)
-//            .sink { completion in
-//                switch completion {
-//                case .finished:
-//                    break
-//                case .failure ( let err):
-//                    print ( err.localizedDescription)
-//                }
-//            }receiveValue: { users in
-//                self.users = users
-//            }
-//            .store(in: &cancelable)
-//    }
-//
-//}
