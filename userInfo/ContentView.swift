@@ -18,7 +18,7 @@ struct ContentView: View {
             VStack {
                 List(viewModel.users) { user in
                     NavigationLink(destination: UserDetailsView(user: user)) {
-                        VStack(alignment: .leading, spacing: 4) { // Add VStack for ID, name, email, and phone
+                        VStack(alignment: .leading, spacing: 4) {
                             HStack {
                                 Text("\(user.id)")
                                     .font(.subheadline)
